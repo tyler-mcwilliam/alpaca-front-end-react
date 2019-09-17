@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import reduxPromise from 'redux-promise';
+// import Alpaca from '@alpacahq/alpaca-trade-api';
 
 // internal modules
 import App from './components/app';
@@ -20,12 +21,12 @@ import positionsReducer from './reducers/positions_reducer';
 const identityReducer = (state = null) => state;
 
 const initialState = {
-  apiKey: "",
+  keyId: "",
   secretKey: ""
 };
 
 const reducers = combineReducers({
-  apiKey: apiKeyReducer,
+  keyId: apiKeyReducer,
   secretKey: secretKeyReducer,
   currentUser: identityReducer
 });

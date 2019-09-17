@@ -25,12 +25,23 @@
   },
   "dependencies": {
     "@alpacahq/alpaca-trade-api": "^1.2.4",
+    "alpaca": "^1.5.27",
+    "dotenv": "^8.1.0",
+    "fs": "^0.0.1-security",
+    "mime-db": "^1.41.0",
+    "mime-types": "^2.1.24",
+    "net": "^1.0.2",
     "react": "16.2",
     "react-dom": "16.2",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "redux-promise": "^0.6.0"
+    "redux-promise": "^0.6.0",
+    "request": "^2.88.0",
+    "sshpk": "^1.16.1",
+    "tls": "^0.0.1",
+    "tweetnacl": "^1.0.1",
+    "urljoin": "^0.1.5"
   },
   "scripts": {
     "start": "webpack-dev-server --mode development",
