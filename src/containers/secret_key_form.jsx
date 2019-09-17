@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class KeyForm extends Component {
+class SecretKeyForm extends Component {
   constructor(props) {
     super(props);
     this.state = { term: "" };
@@ -22,18 +22,17 @@ class KeyForm extends Component {
   render() {
     console.log("Rendering search bar..");
     return (
-      <div className="trade-bar">
-        <p>Ticker</p>
+      <div>
+        <p>Secret Key</p>
         <input
           value={this.state.term}
-          type="text"
+          type="password"
           className="form-control form-search"
           onChange={this.handleUpdate}
         />
-        <button>Place</button>
       </div>
     );
   }
 }
 
-export default KeyForm;
+export default SecretKeyForm;

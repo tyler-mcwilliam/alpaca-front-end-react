@@ -1,7 +1,103 @@
 body {
-  font-family: Helvetica;
+  font-family: Gilroy-Medium,sans-serif!important;
+  background-color: #F2F4F8;
 }
 .app {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.gui-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100vh;
+  width: 10%;
+  background-color: #1C1B12;
+}
+
+.llama-logo {
+  max-width:100%;
+  object-fit: contain;
+  align-self: flex-start;
+  padding: 10px 20px;
+}
+
+.dashboard {
+  position: fixed;
+  height: 100%;
+  width: 90%;
+  left: 10%;
+}
+
+.topbar {
+  position: fixed;
+  background: #FCD302;
+  width: 100%;
+  height: 10%;
+  border-bottom: 2px solid #e4e8f1;
+  color: #2f2f2f;
+}
+
+.topbar h3 {
+  font-weight: 800;
+  line-height: 64px;
+  padding: 0px 5px;
+  margin: 0px 20px;
+}
+
+.content {
+  display: flex;
+  position: fixed;
+  height: 90%;
+  top: 10%;
+  width: 90%;
+  padding: 20px;
+  overflow: scroll;
+}
+
+.info {
+  width: 60%;
+}
+
+.dash-wrapper {
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 24px;
+  background: rgb(255, 255, 255);
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(244, 244, 244);
+  border-image: initial;
+  border-radius: 4px;
+}
+
+.dash-title {
+  font-family: Gilroy-Light;
+  font-size: 24px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: rgb(21, 36, 48);
+  margin-bottom: 7px;
+}
+
+.status {
+  display: sticky;
+  top: 0;
+  width: 40%;
+  margin: 24px;
+  padding: 24px;
+  background: rgb(255, 255, 255);
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(244, 244, 244);
+  border-image: initial;
+  border-radius: 4px;
 }

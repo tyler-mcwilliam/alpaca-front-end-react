@@ -1,35 +1,55 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import { fetchPositions } from '../actions';
+import Position from '../components/position';
+import KeyForm from '../containers/key_form';
+import SecretKeyForm from '../containers/secret_key_form';
 
 class PositionsList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { term: "" };
-  }
-
-  handleUpdate = (event) => {
-    this.setState({ term: event.target.value });
-    this.props.searchFunction(event.target.value);
-  }
-
   componentWillMount() {
-    console.log("Search bar mounting...");
+    this.fetchPositions();
   }
 
   componentDidMount() {
-    console.log("...Search bar mounted.");
+    this.refresher = setInterval(this.fetchPositions, 5000);
   }
 
-  render() {
-    console.log("Rendering search bar..");
+  componentDidUpdate() {
+    this.list.scrollTop = this.list.scrollHeight;
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.refresher);
+  }
+
+  fetchPositions = () => {
+    this.props.fetchPositions();
+  }
+
+  render () {
     return (
-      <input
-        value={this.state.term}
-        type="text"
-        className="form-control form-search"
-        onChange={this.handleUpdate}
-      />
+      <div className="position-container">
+        <div className="position-title">
+          <span>Position Ticker</span>
+        </div>
+        <div className="position-content">
+          <Position />
+        </div>
+      </div>
     );
   }
 }
 
-export default PositionsList;
+function mapStateToProps(state) {
+  return {
+    positions: state.positions_list
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchPositions }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PositionsList);
