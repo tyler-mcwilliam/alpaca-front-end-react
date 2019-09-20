@@ -1,37 +1,42 @@
-import Alpaca from '@alpacahq/alpaca-trade-api';
-
-// const Alpaca = require('@alpacahq/alpaca-trade-api');
-
 const BASE_URL = 'https://paper-api.alpaca.markets';
-const API_KEY = "TBD";
-const SECRET_KEY = "TBD";
-
-// const alpaca = new Alpaca({
-//   keyId: API_KEY,
-//   secretKey: SECRET_KEY,
-//   paper: true,
-// });
-
+const API_KEY = "PK6U6ED9E8HXK3SWW268";
+const SECRET_KEY = "SouRAmDePmiQkyEEsiLItQx72dylQuMizDvFZpWI";
 
 export const FETCH_ACCOUNT = 'FETCH_ACCOUNT';
 export const FETCH_POSITIONS = 'FETCH_POSITIONS';
 export const PLACE_ORDER = 'PLACE_ORDER';
+export const UPDATE_KEY = 'UPDATE_KEY';
+export const UPDATE_SECRET_KEY = 'UPDATE_SECRET_KEY';
 
-export function fetchAccount() {
+export function updateKey(keyId) {
+  const promise = keyId;
+
+  return {
+    type: UPDATE_KEY,
+    payload: promise // Will be resolved by redux-promise
+  };
+}
+
+export function updateSecretKey(secretKey) {
+  const promise = secretKey;
+
+  return {
+    type: UPDATE_SECRET_KEY,
+    payload: promise // Will be resolved by redux-promise
+  };
+}
+
+export function fetchAccount(keyId, secretKey) {
   const url = `${BASE_URL}/v2/account`;
-  const promise = fetch(url).then(r => r.json());
-
-  // // Get our account information.
-  // alpaca.getAccount()
-  //   .then((account) => {
-  //     // Check if our account is restricted from trading.
-  //     if (account.trading_blocked) {
-  //       console.log('Account is currently restricted from trading.')
-  //     }
-
-  //     // Check how much money we can use to open new positions.
-  //     console.log(`$${account.buying_power} is available as buying power.`)
-  //   });
+  console.log(keyId);
+  console.log(secretKey);
+  const promise = fetch(url, {
+    method: 'GET',
+    headers: {
+      'APCA-API-KEY-ID': keyId,
+      'APCA-API-SECRET-KEY': secretKey
+    },
+  }).then(res => res.json());
 
   return {
     type: FETCH_ACCOUNT,
@@ -41,16 +46,14 @@ export function fetchAccount() {
 
 export function fetchPositions() {
   const url = `${BASE_URL}/v2/positions`;
-  const promise = fetch(url).then(r => r.json());
 
-  // // Get a list of all of our positions.
-  // alpaca.listPositions()
-  //   .then((portfolio) => {
-  //     // Print the quantity of shares for each position.
-  //     portfolio.foreach(function (position) {
-  //       console.log(`${position.qty} shares of ${position.symbol}`);
-  //     });
-  //   });
+  const promise = fetch(url, {
+    method: 'GET',
+    headers: {
+      'APCA-API-KEY-ID': API_KEY,
+      'APCA-API-SECRET-KEY': SECRET_KEY
+    },
+  }).then(res => res.json());
 
   return {
     type: FETCH_POSITIONS,
@@ -58,29 +61,29 @@ export function fetchPositions() {
   };
 }
 
-export function placeOrder(symbol, qty, side, type, timeInForce, limitPrice) {
+export function placeOrder(mySymbol, myQty, mySide, myType, myTimeInForce, myLimitPrice) {
   const url = `${BASE_URL}/v2/orders`;
+  const data = {
+    symbol: mySymbol
+  };
   const promise = fetch(url).then(r => r.json());
 
-  // // Submit a market order to buy 1 share of Apple at market price
-  // alpaca.createOrder({
-  //   symbol: 'AAPL',
-  //   qty: 1,
-  //   side: 'buy',
-  //   type: 'market',
-  //   time_in_force: 'day'
-  // });
-
-  // // Submit a limit order to attempt to sell 1 share of AMD at a
-  // // particular price ($20.50) when the market opens
-  // alpaca.createOrder({
-  //   symbol: `${symbol}`,
-  //   qty: `${qty}`,
-  //   side: `${side}`,
-  //   type: `${type}`,
-  //   time_in_force: `${timeInForce}`,
-  //   limit_price: `${limitPrice}`,
-  // });
+  fetch(url, {
+    method: 'POST', // or 'PUT'
+    body: JSON.stringify(data), // data can be `string` or {object}!
+    headers: {
+      'APCA-API-KEY-ID': API_KEY,
+      'APCA-API-SECRET-KEY': SECRET_KEY,
+      symbol: `${mySymbol}`,
+      qty: `${myQty}`,
+      side: `${mySide}`,
+      type: `${myType}`,
+      time_in_force: `${myTimeInForce}`,
+      limit_price: `${myLimitPrice}`,
+    }
+  }).then(res => res.json())
+    .then(response => console.log('Success:', JSON.stringify(response)))
+    .catch(error => console.error('Error:', error));
 
   return {
     type: PLACE_ORDER,

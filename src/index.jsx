@@ -17,18 +17,20 @@ import '../assets/stylesheets/application.scss';
 import apiKeyReducer from './reducers/api_key_reducer';
 import secretKeyReducer from './reducers/secret_key_reducer';
 import positionsReducer from './reducers/positions_reducer';
-
-const identityReducer = (state = null) => state;
+import accountReducer from './reducers/account_reducer';
 
 const initialState = {
-  keyId: "",
-  secretKey: ""
+  keyId: "PK6U6ED9E8HXK3SWW268",
+  secretKey: "SouRAmDePmiQkyEEsiLItQx72dylQuMizDvFZpWI",
+  account: null,
+  positions: []
 };
 
 const reducers = combineReducers({
   keyId: apiKeyReducer,
   secretKey: secretKeyReducer,
-  currentUser: identityReducer
+  account: accountReducer,
+  positions: positionsReducer
 });
 
 // Middlewares
