@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 import { fetchPositions } from '../actions';
 import Position from '../components/position';
-import KeyForm from '../containers/key_form';
-import SecretKeyForm from '../containers/secret_key_form';
 
 class PositionsList extends Component {
   componentWillMount() {
@@ -17,7 +15,7 @@ class PositionsList extends Component {
   }
 
   componentDidUpdate() {
-    this.list.scrollTop = this.list.scrollHeight;
+
   }
 
   componentWillUnmount() {
@@ -32,10 +30,17 @@ class PositionsList extends Component {
     return (
       <div className="position-container">
         <div className="position-title">
-          <span>Position Ticker</span>
+          <span>Positions</span>
         </div>
         <div className="position-content">
           <Position />
+        </div>
+        <div>
+          {
+            this.props.positions.map((position) => {
+              return <Position key={position.asset_id} position={position} />;
+            })
+          }
         </div>
       </div>
     );
@@ -44,7 +49,10 @@ class PositionsList extends Component {
 
 function mapStateToProps(state) {
   return {
-    positions: state.positions_list
+    keyId: state.keyId,
+    secretKey: state.secretKey,
+    account: state.account,
+    positions: state.positions
   };
 }
 

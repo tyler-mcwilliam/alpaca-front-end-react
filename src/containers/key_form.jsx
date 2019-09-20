@@ -1,33 +1,35 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import { updateKey, fetchAccount } from '../actions';
 
 class KeyForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { term: "" };
-  }
-
   componentWillMount() {
-    console.log("Search bar mounting...");
+    console.log("Key form mounting...");
+    fetchAccount();
   }
 
   componentDidMount() {
-    console.log("...Search bar mounted.");
+    this.props.fetchAccount(this.props.keyId, this.props.secretKey);
+    this.refresher = setInterval(this.fetchAccount, 5000);
+    console.log("...Key form mounted.");
   }
 
   handleUpdate = (event) => {
-    this.setState({ term: event.target.value });
-    this.props.searchFunction(event.target.value);
+    this.props.updateKey(event.target.value);
+    this.props.fetchAccount(event.target.value, this.props.secretKey);
   }
 
   render() {
-    console.log("Rendering search bar..");
+    console.log("Rendering key form-control..");
     return (
       <div>
         <p>API Key</p>
         <input
-          value={this.state.term}
+          value={this.props.keyId}
           type="text"
-          className="form-control form-search"
+          className="form-control form-key"
           onChange={this.handleUpdate}
         />
       </div>
@@ -35,4 +37,17 @@ class KeyForm extends Component {
   }
 }
 
-export default KeyForm;
+function mapStateToProps(state) {
+  return {
+    keyId: state.keyId,
+    secretKey: state.secretKey,
+    account: state.account,
+    positions: state.positions
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ updateKey, fetchAccount }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(KeyForm);

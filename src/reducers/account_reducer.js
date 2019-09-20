@@ -1,8 +1,8 @@
-import { UPDATE_SECRET_KEY } from '../actions';
+import { FETCH_ACCOUNT } from '../actions';
 
 export default function(state = null, action) {
   switch (action.type) {
-    case UPDATE_SECRET_KEY: {
+    case FETCH_ACCOUNT: {
       return action.payload;
     }
     default:

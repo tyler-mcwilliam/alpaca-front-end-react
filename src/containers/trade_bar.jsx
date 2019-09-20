@@ -7,11 +7,11 @@ class KeyForm extends Component {
   }
 
   componentWillMount() {
-    console.log("Search bar mounting...");
+    console.log("Trade bar mounting...");
   }
 
   componentDidMount() {
-    console.log("...Search bar mounted.");
+    console.log("...Trade bar mounted.");
   }
 
   handleUpdate = (event) => {
@@ -20,14 +20,14 @@ class KeyForm extends Component {
   }
 
   render() {
-    console.log("Rendering search bar..");
+    console.log("Rendering trade bar..");
     return (
       <div className="trade-bar">
         <p>Ticker</p>
         <input
           value={this.state.term}
           type="text"
-          className="form-control form-search"
+          className="form-control form-trade"
           onChange={this.handleUpdate}
         />
         <button>Place</button>

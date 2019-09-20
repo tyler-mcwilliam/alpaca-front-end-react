@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import { updateSecretKey, fetchAccount } from '../actions';
 
 class SecretKeyForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { term: "" };
-  }
-
   componentWillMount() {
-    console.log("Search bar mounting...");
+    console.log("Secret key form mounting...");
+    fetchAccount();
   }
 
   componentDidMount() {
-    console.log("...Search bar mounted.");
+    this.props.fetchAccount(this.props.keyId, this.props.secretKey);
+    console.log("...Secret key form mounted.");
   }
 
   handleUpdate = (event) => {
-    this.setState({ term: event.target.value });
-    this.props.searchFunction(event.target.value);
+    this.props.updateSecretKey(event.target.value);
+    this.props.fetchAccount(this.props.keyId, event.target.value);
   }
 
   render() {
@@ -25,7 +26,7 @@ class SecretKeyForm extends Component {
       <div>
         <p>Secret Key</p>
         <input
-          value={this.state.term}
+          value={this.props.secretKey}
           type="password"
           className="form-control form-search"
           onChange={this.handleUpdate}
@@ -35,4 +36,17 @@ class SecretKeyForm extends Component {
   }
 }
 
-export default SecretKeyForm;
+function mapStateToProps(state) {
+  return {
+    keyId: state.keyId,
+    secretKey: state.secretKey,
+    account: state.account,
+    positions: state.positions
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ updateSecretKey, fetchAccount }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SecretKeyForm);

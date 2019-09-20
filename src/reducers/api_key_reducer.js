@@ -1,9 +1,9 @@
-import { FETCH_POSITIONS } from '../actions';
+import { UPDATE_KEY } from '../actions';
 
 export default function(state = null, action) {
   switch (action.type) {
-    case FETCH_POSITIONS: {
-      return action.payload.messages;
+    case UPDATE_KEY: {
+      return action.payload;
     }
     default:
       return state;
