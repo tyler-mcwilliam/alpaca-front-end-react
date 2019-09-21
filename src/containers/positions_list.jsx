@@ -7,11 +7,11 @@ import Position from '../components/position';
 
 class PositionsList extends Component {
   componentWillMount() {
-    this.fetchPositions();
+    this.fetchPositions(this.props.keyId, this.props.secretKey);
   }
 
   componentDidMount() {
-    this.refresher = setInterval(this.fetchPositions, 5000);
+    // this.refresher = setInterval(fetchPositions(), 5000);
   }
 
   componentDidUpdate() {
@@ -23,10 +23,28 @@ class PositionsList extends Component {
   }
 
   fetchPositions = () => {
-    this.props.fetchPositions();
+    this.props.fetchPositions(this.props.keyId, this.props.secretKey);
   }
 
   render () {
+    if (!this.props.positions) {
+      return (
+        <div className="no-position-container">
+          <div className="position-title">
+            <span>No Positions</span>
+          </div>
+        </div>
+      );
+    }
+    if (this.props.positions.code === 40110000 || this.props.positions.message === "Failed to fetch") {
+      return (
+        <div className="position-container">
+          <div className="position-title">
+            <span>No Positions</span>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="position-container">
         <div className="position-title">

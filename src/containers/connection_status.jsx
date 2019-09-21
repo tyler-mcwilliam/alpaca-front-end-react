@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { fetchAccount } from '../actions';
+import { fetchAccount, fetchPositions } from '../actions';
 
 
 class ConnectionStatus extends Component {
   componentWillMount() {
-    this.fetchAccount();
   }
 
   componentDidMount() {
-    this.refresher = setInterval(this.fetchPositions, 5000);
+    // this.refresher = setInterval(fetchAccount(), 5000);
+    fetchAccount();
   }
 
   componentDidUpdate() {
@@ -23,14 +23,14 @@ class ConnectionStatus extends Component {
   }
 
   fetchAccount = () => {
-    this.props.fetchAccount();
+    this.props.fetchAccount(this.props.keyId, this.props.secretKey);
   }
 
   render () {
     if (!this.props.account) {
       return (
-        <div className="connection-status">
-          <p>Inactive</p>
+        <div className="connection-status animated fadeOut">
+          <p className="animated bounce inifinite">Inactive</p>
         </div>
       );
     }
@@ -64,7 +64,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchAccount }, dispatch);
+  return bindActionCreators({ fetchAccount, fetchPositions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConnectionStatus);
