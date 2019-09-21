@@ -2,26 +2,23 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { updateSecretKey, fetchAccount } from '../actions';
+import { updateSecretKey, fetchAccount, fetchPositions } from '../actions';
 
 class SecretKeyForm extends Component {
   componentWillMount() {
-    console.log("Secret key form mounting...");
-    fetchAccount();
   }
 
   componentDidMount() {
-    this.props.fetchAccount(this.props.keyId, this.props.secretKey);
-    console.log("...Secret key form mounted.");
+    // this.refresher = setInterval(this.props.fetchAccount(this.props.keyId, this.props.secretKey), 5000);
   }
 
   handleUpdate = (event) => {
     this.props.updateSecretKey(event.target.value);
     this.props.fetchAccount(this.props.keyId, event.target.value);
+    this.props.fetchPositions(this.props.keyId, event.target.value);
   }
 
   render() {
-    console.log("Rendering search bar..");
     return (
       <div>
         <p>Secret Key</p>
@@ -46,7 +43,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ updateSecretKey, fetchAccount }, dispatch);
+  return bindActionCreators({ updateSecretKey, fetchAccount, fetchPositions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SecretKeyForm);

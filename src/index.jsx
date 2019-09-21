@@ -20,10 +20,12 @@ import positionsReducer from './reducers/positions_reducer';
 import accountReducer from './reducers/account_reducer';
 
 const initialState = {
+  // keyId: "APCA-API-KEY-ID",
+  // secretKey: "APCA-API-SECRET-KEY",
   keyId: "PK6U6ED9E8HXK3SWW268",
   secretKey: "SouRAmDePmiQkyEEsiLItQx72dylQuMizDvFZpWI",
   account: null,
-  positions: []
+  positions: null
 };
 
 const reducers = combineReducers({

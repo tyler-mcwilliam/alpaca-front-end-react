@@ -5,10 +5,27 @@ const Position = (props) => {
     return (null);
   }
   return (
-    <div className="position">
-      <p>Symbol: { props.position.symbol }</p>
-      <p>Entry Price: { props.position.avg_entry_price }</p>
-      <p>Quantity: { props.position.qty }</p>
+    <div className="position animated bounce infinite">
+      <div className="ticker-box">
+        <div>
+          { props.position.symbol }
+        </div>
+        <div>
+          { (props.position.change_today * 100).toFixed(2) }%
+        </div>
+      </div>
+      <div>
+        ${ props.position.current_price }
+      </div>
+      <div>
+        { props.position.qty }
+      </div>
+      <div>
+        ${ props.position.market_value }
+      </div>
+      <div>
+        ${ props.position.unrealized_pl }
+      </div>
     </div>
   );
 };

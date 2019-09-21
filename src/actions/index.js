@@ -28,8 +28,6 @@ export function updateSecretKey(secretKey) {
 
 export function fetchAccount(keyId, secretKey) {
   const url = `${BASE_URL}/v2/account`;
-  console.log(keyId);
-  console.log(secretKey);
   const promise = fetch(url, {
     method: 'GET',
     headers: {
@@ -44,14 +42,14 @@ export function fetchAccount(keyId, secretKey) {
   };
 }
 
-export function fetchPositions() {
+export function fetchPositions(keyId, secretKey) {
   const url = `${BASE_URL}/v2/positions`;
 
   const promise = fetch(url, {
     method: 'GET',
     headers: {
-      'APCA-API-KEY-ID': API_KEY,
-      'APCA-API-SECRET-KEY': SECRET_KEY
+      'APCA-API-KEY-ID': keyId,
+      'APCA-API-SECRET-KEY': secretKey
     },
   }).then(res => res.json());
 
@@ -66,9 +64,7 @@ export function placeOrder(mySymbol, myQty, mySide, myType, myTimeInForce, myLim
   const data = {
     symbol: mySymbol
   };
-  const promise = fetch(url).then(r => r.json());
-
-  fetch(url, {
+  const promise = fetch(url, {
     method: 'POST', // or 'PUT'
     body: JSON.stringify(data), // data can be `string` or {object}!
     headers: {
@@ -81,9 +77,7 @@ export function placeOrder(mySymbol, myQty, mySide, myType, myTimeInForce, myLim
       time_in_force: `${myTimeInForce}`,
       limit_price: `${myLimitPrice}`,
     }
-  }).then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response)))
-    .catch(error => console.error('Error:', error));
+  }).then(res => res.json());
 
   return {
     type: PLACE_ORDER,
