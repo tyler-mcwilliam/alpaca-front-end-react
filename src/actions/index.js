@@ -59,25 +59,25 @@ export function fetchPositions(keyId, secretKey) {
   };
 }
 
-export function placeOrder(mySymbol, myQty, mySide, myType, myTimeInForce, myLimitPrice) {
+export function placeOrder(mySymbol, myQty, mySide, myType, myTimeInForce) {
   const url = `${BASE_URL}/v2/orders`;
   const data = {
-    symbol: mySymbol
+    symbol: mySymbol,
+    qty: myQty,
+    side: mySide,
+    type: myType,
+    time_in_force: myTimeInForce,
   };
   const promise = fetch(url, {
     method: 'POST', // or 'PUT'
     body: JSON.stringify(data), // data can be `string` or {object}!
     headers: {
       'APCA-API-KEY-ID': API_KEY,
-      'APCA-API-SECRET-KEY': SECRET_KEY,
-      symbol: `${mySymbol}`,
-      qty: `${myQty}`,
-      side: `${mySide}`,
-      type: `${myType}`,
-      time_in_force: `${myTimeInForce}`,
-      limit_price: `${myLimitPrice}`,
+      'APCA-API-SECRET-KEY': SECRET_KEY
     }
   }).then(res => res.json());
+
+  console.log(promise);
 
   return {
     type: PLACE_ORDER,

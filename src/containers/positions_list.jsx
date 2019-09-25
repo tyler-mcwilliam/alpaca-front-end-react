@@ -40,15 +40,20 @@ class PositionsList extends Component {
       return (
         <div className="position-container">
           <div className="position-title">
-            <span>No Positions</span>
+            <span>Stock</span>
           </div>
         </div>
       );
     }
     return (
       <div className="position-container">
-        <div className="position-title">
-          <span>Positions</span>
+        <div className="position-titles">
+          <div>Stock</div>
+          <div>Price</div>
+          <div>Quantity</div>
+          <div>Market Value</div>
+          <div>Total Profit</div>
+          <div>Trade</div>
         </div>
         <div className="position-content">
           <Position />

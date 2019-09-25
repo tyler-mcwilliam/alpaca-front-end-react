@@ -61,7 +61,7 @@ body {
 }
 
 .info {
-  width: 60%;
+  width: 70%;
   padding: 24px;
 }
 
@@ -88,13 +88,14 @@ body {
   letter-spacing: normal;
   text-align: left;
   color: rgb(21, 36, 48);
+  margin-top: 0px;
   margin-bottom: 7px;
 }
 
 .status {
   position: sticky;
   top: 0;
-  width: 40%;
+  width: 30%;
   height: 60%;
   margin: 24px;
   padding: 24px;
@@ -108,15 +109,117 @@ body {
   border-top: 4px solid rgb(191, 161, 0);
 }
 
+.inactive-notification {
+  width: 100%;
+  padding: 20px;
+  background-color: #F5CFD3;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+  border-radius: 4px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.active-notification {
+  width: 100%;
+  padding: 20px;
+  background-color: #D1F6E1;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+  border-radius: 4px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.position-titles {
+  display: flex;
+  justify-content: space-between;
+}
+
 .position {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-family: Helvetica;
+  font-size: 14px;
+  line-height: 32px;
+  letter-spacing: 0.4px;
+  color: rgb(0, 0, 0);
+  border-radius: 2px;
+  margin: 4px;
 }
 
 .ticker-box {
-  background-color: #D1F6E1;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  font-family: Helvetica;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+  color: rgb(0, 0, 0);
+  border-radius: 2px;
+  padding: 4px 8px;
+  margin: 4px;
+  width: 30%;
+}
+
+.symbol {
+  font-weight: 800;
+  margin: 0 10px 0 0;
+}
+
+.current-price {
+  width: 15%;
+  text-align: end;
+}
+
+.qty {
+  width: 10%;
+  text-align: end;
+}
+
+.market-value {
+  width: 15%;
+  text-align: end;
+}
+
+.unrealized-pl {
+  width: 15%;
+  text-align: end;
+}
+
+
+.order-buttons {
+  align-content: flex-end;
+  width: 15%;
+  min-width: fit-content;
+  margin: 4px;
 }
 
 .llama-jump {
   width: 80%;
   height: 80%;
+}
+
+.trade-bar {
+  display: flex;
+}
+
+.trade-form {
+  display: flex;
+}
+
+.form-symbol {
+  width: 10%;
+}
+
+.order-submit {
+  background-color: rgb(191, 161, 0);
+  font-family: Helvetica;
+  border-style: none;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
