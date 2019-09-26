@@ -10,8 +10,7 @@ class ConnectionStatus extends Component {
   }
 
   componentDidMount() {
-    // this.refresher = setInterval(fetchAccount(), 5000);
-    fetchAccount();
+    this.refresher = setInterval(fetchAccount, 5000);
   }
 
   componentDidUpdate() {
@@ -30,25 +29,22 @@ class ConnectionStatus extends Component {
     if (!this.props.account) {
       return (
         <div className="connection-status animated fadeOut">
-          <p className="animated bounce inifinite">Inactive</p>
+          <p className="inactive-notification">Inactive</p>
         </div>
       );
     }
     if (this.props.account.code === 40110000) {
       return (
         <div className="connection-status">
-          <p>Inactive</p>
+          <p className="inactive-notification">Inactive</p>
         </div>
       );
     }
     return (
       <div className="connection-status">
-        <p>Active</p>
-        <p>{ this.props.account.account_number }</p>
-        <p>{ this.props.account.account_blocked }</p>
-        <p>{ this.props.account.buying_power }</p>
-        <p>{ this.props.account.currency }</p>
-        <p>{ this.props.account.equity }</p>
+        <p className="active-notification">Connected to Account: { this.props.account.account_number }</p>
+        <h3>Buying Power: { this.props.account.buying_power } { this.props.account.currency }</h3>
+        <h3>Equity: { this.props.account.equity } { this.props.account.currency }</h3>
       </div>
     );
   }
