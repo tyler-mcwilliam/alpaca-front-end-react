@@ -1,8 +1,9 @@
 {
-  "name": "myapp",
+  "name": "llama-trader",
   "description": "a really cool app",
   "version": "1.0.0",
   "license": "UNLICENSED",
+  "main": "index.jsx",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
@@ -67,10 +68,8 @@
     "webpack-dev-server": "^3.8.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "lint": "eslint './src/**/*.js' './src/**/*.jsx'",
-    "deploy": "webpack -p && gh-pages -d dist",
-    "bundle": "./node_modules/.bin/webpack --config webpack.config.js",
-    "prestart": "yarn run bundle"
+    "dev": "webpack-dev-server --mode development --open",
+    "start": "node server.js",
+    "heroku-postbuild": "webpack -p"
   }
 }
