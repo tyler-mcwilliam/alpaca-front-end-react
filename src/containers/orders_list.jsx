@@ -40,7 +40,7 @@ class OrdersList extends Component {
       return (
         <div className="order-container">
           <div className="order-title">
-            <span>Stock</span>
+            <span>No Orders - verify valid API Key connection</span>
           </div>
         </div>
       );

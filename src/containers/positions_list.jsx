@@ -40,7 +40,7 @@ class PositionsList extends Component {
       return (
         <div className="position-container">
           <div className="position-title">
-            <span>Stock</span>
+            <span>No Positions - verify valid API Key connection</span>
           </div>
         </div>
       );
