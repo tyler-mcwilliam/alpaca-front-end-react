@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import reduxPromise from 'redux-promise';
-// import Alpaca from '@alpacahq/alpaca-trade-api';
 
 // internal modules
 import App from './components/app';
@@ -17,7 +16,9 @@ import '../assets/stylesheets/application.scss';
 import apiKeyReducer from './reducers/api_key_reducer';
 import secretKeyReducer from './reducers/secret_key_reducer';
 import positionsReducer from './reducers/positions_reducer';
+import ordersReducer from './reducers/orders_reducer';
 import accountReducer from './reducers/account_reducer';
+import placeOrderReducer from './reducers/place_order_reducer';
 
 const initialState = {
   // keyId: "APCA-API-KEY-ID",
@@ -25,14 +26,18 @@ const initialState = {
   keyId: "PK6U6ED9E8HXK3SWW268",
   secretKey: "SouRAmDePmiQkyEEsiLItQx72dylQuMizDvFZpWI",
   account: null,
-  positions: null
+  positions: null,
+  orders: null,
+  placed_order: null
 };
 
 const reducers = combineReducers({
   keyId: apiKeyReducer,
   secretKey: secretKeyReducer,
   account: accountReducer,
-  positions: positionsReducer
+  positions: positionsReducer,
+  orders: ordersReducer,
+  placed_order: placeOrderReducer
 });
 
 // Middlewares

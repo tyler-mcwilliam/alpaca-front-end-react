@@ -27,6 +27,23 @@ body {
   padding: 10px 20px;
 }
 
+.social-links {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+}
+
+.icon-links {
+  font-size: 2vw;
+  margin: 8px;
+  color: gray;
+}
+
+.icon-links:hover {
+  color: white;
+  cursor: pointer;
+}
+
 .dashboard {
   position: fixed;
   height: 100%;
@@ -36,6 +53,7 @@ body {
 
 .topbar {
   position: fixed;
+  display: flex;
   background: #FCD302;
   width: 100%;
   height: 10%;
@@ -43,11 +61,33 @@ body {
   color: #2f2f2f;
 }
 
+.topbar a {
+  text-decoration: none;
+}
+
 .topbar h3 {
   font-weight: 800;
   line-height: 64px;
   padding: 0px 5px;
   margin: 0px 20px;
+  color: black;
+}
+
+.api-button {
+  height: 80%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  border-style: none;
+  margin: 5%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.api-button:hover {
+  background-color: gray;
 }
 
 .content {
@@ -135,12 +175,18 @@ body {
 
 .position-titles {
   display: flex;
+  width: 95%;
   justify-content: space-between;
+}
+
+.position-content {
+  overflow: auto;
+  height: 50vh;
 }
 
 .position {
   display: flex;
-  width: 100%;
+  width: auto;
   justify-content: space-between;
   font-family: Helvetica;
   font-size: 14px;
@@ -192,6 +238,31 @@ body {
   text-align: end;
 }
 
+.order-buttons-title {
+  width: 15%;
+  text-align: end;
+}
+
+.order-symbol {
+  width: 15%;
+  text-align: end;
+}
+
+.order-type {
+  width: 35%;
+  text-align: end;
+}
+
+.filled-avg-price {
+  width: 25%;
+  text-align: end;
+}
+
+.order-status {
+  width: 25%;
+  text-align: end;
+}
+
 
 .order-buttons {
   align-content: flex-end;
@@ -200,26 +271,140 @@ body {
   margin: 4px;
 }
 
-.llama-jump {
-  width: 80%;
-  height: 80%;
+.order-titles {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.order-content {
+  overflow: auto;
+  height: 50vh;
+}
+
+.order {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+  font-family: Helvetica;
+  font-size: 14px;
+  line-height: 32px;
+  letter-spacing: 0.4px;
+  color: rgb(0, 0, 0);
+  border-radius: 2px;
+  margin: 4px;
+  padding: 4px;
+  background-color: #F4F4F4;
 }
 
 .trade-bar {
-  display: flex;
+
+}
+
+.trade-quantity {
+  color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  margin: 4px;
+  border: 2px solid #bfa100;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+
+.buy-button {
+  color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  margin: 4px;
+  border: 2px solid #bfa100;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+
+.buy-button:hover {
+  color: #ffffff !important;
+  background: #29E27A;
+  border-color: #f6b93b !important;
+  transition: all 0.4s ease 0s;
+}
+
+.sell-button {
+  color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  margin: 4px;
+  border: 2px solid #bfa100;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+
+.sell-button:hover {
+  color: #ffffff !important;
+  background: #D51C2D;
+  border-color: #f6b93b !important;
+  transition: all 0.4s ease 0s;
 }
 
 .trade-form {
-  display: flex;
+  display: inline-grid;
+  width: 100%;
 }
 
 .form-symbol {
-  width: 10%;
+  color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  margin: 4px;
+  border: 2px solid #bfa100;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+
+.form-side {
+  color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  margin: 4px;
+  border: 2px solid #bfa100;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+.form-side::-ms-expand {
+    display: none;
+}
+.form-side:hover {
+    border-color: #bfa100;
+}
+.form-side:focus {
+    border-color: #bfa100;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+}
+.form-side option {
+    font-weight:normal;
 }
 
 .order-submit {
-  background-color: rgb(191, 161, 0);
-  font-family: Helvetica;
-  border-style: none;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  margin: 4px;
+  border: 2px solid #bfa100;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+
+.order-submit:hover {
+  color: #ffffff !important;
+  background: #f6b93b;
+  border-color: #f6b93b !important;
+  transition: all 0.4s ease 0s;
 }

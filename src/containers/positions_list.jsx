@@ -11,7 +11,7 @@ class PositionsList extends Component {
   }
 
   componentDidMount() {
-    // this.refresher = setInterval(fetchPositions(), 5000);
+    this.refresher = setInterval(this.fetchPositions, 5000);
   }
 
   componentDidUpdate() {
@@ -48,17 +48,13 @@ class PositionsList extends Component {
     return (
       <div className="position-container">
         <div className="position-titles">
-          <div>Stock</div>
-          <div>Price</div>
-          <div>Quantity</div>
-          <div>Market Value</div>
-          <div>Total Profit</div>
-          <div>Trade</div>
+          <div className="ticker-box"><strong>Stock</strong></div>
+          <div className="current-price"><strong>Price</strong></div>
+          <div className="qty"><strong>Quantity</strong></div>
+          <div className="market-value"><strong>Market Value</strong></div>
+          <div className="unrealized-pl"><strong>Total Profit</strong></div>
         </div>
         <div className="position-content">
-          <Position />
-        </div>
-        <div>
           {
             this.props.positions.map((position) => {
               return <Position key={position.asset_id} position={position} />;
@@ -84,3 +80,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PositionsList);
+
+// <div className="order-buttons-title"><strong>Trade</strong></div>

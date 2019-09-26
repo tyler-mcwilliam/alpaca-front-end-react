@@ -5,8 +5,8 @@ const Position = (props) => {
     return (null);
   }
   return (
-    <div className="position animated bounce infinite">
-      <div className="ticker-box" style={ props.position.change_today < 0 ? { backgroundColor: '#F5CFD3' } : { backgroundColor: '#D1F6E1' } }>
+    <div className="position">
+      <div className="ticker-box" style={props.position.change_today < 0 ? { backgroundColor: '#F5CFD3' } : { backgroundColor: '#D1F6E1' }}>
         <div className="symbol">
           { props.position.symbol }
         </div>
@@ -23,15 +23,16 @@ const Position = (props) => {
       <div className="market-value">
         ${ props.position.market_value }
       </div>
-      <div className="unrealized-pl">
-        ${ props.position.unrealized_pl }
-      </div>
-      <div className="order-buttons">
-        <button>Buy</button>
-        <button>Sell</button>
+      <div className="unrealized-pl" style={props.position.unrealized_pl > 0 ? { color: '#29E272' } : { color: '#D51C2D' }}>
+        <strong>${ props.position.unrealized_pl }</strong>
       </div>
     </div>
   );
 };
 
 export default Position;
+
+// <div className="order-buttons">
+//   <button className="buy-button">Buy</button>
+//   <button className="sell-button">Sell</button>
+// </div>

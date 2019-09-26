@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { updateKey, fetchAccount, fetchPositions } from '../actions';
+import { updateKey, fetchAccount, fetchPositions, fetchOrders } from '../actions';
 
 class KeyForm extends Component {
   componentWillMount() {
@@ -16,6 +16,7 @@ class KeyForm extends Component {
     this.props.updateKey(event.target.value);
     this.props.fetchAccount(event.target.value, this.props.secretKey);
     this.props.fetchPositions(event.target.value, this.props.secretKey);
+    this.props.fetchOrders(event.target.value, this.props.secretKey);
   }
 
   render() {
@@ -38,12 +39,13 @@ function mapStateToProps(state) {
     keyId: state.keyId,
     secretKey: state.secretKey,
     account: state.account,
-    positions: state.positions
+    positions: state.positions,
+    orders: state.orders
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ updateKey, fetchAccount, fetchPositions }, dispatch);
+  return bindActionCreators({ updateKey, fetchAccount, fetchPositions, fetchOrders }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(KeyForm);
