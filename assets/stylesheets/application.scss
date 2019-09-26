@@ -489,5 +489,20 @@ body {
     195px 425px 0 20px #DB8700,
     /*back left leg*/
     165px 410px 0 20px #DBA042
+}
 
+@keyframes wiggle {
+  0% {
+    bottom: 5%;
+  }
+  50% {
+    bottom: 8%;
+  }
+  100% {
+    bottom: 5%;
+  }
+}
+
+.h:hover {
+  animation: wiggle 0.5s infinite;
 }
