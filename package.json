@@ -20,7 +20,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2",
+    "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
@@ -46,12 +46,14 @@
     "sshpk": "^1.16.1",
     "tls": "^0.0.1",
     "tweetnacl": "^1.0.1",
-    "urljoin": "^0.1.5"
+    "urljoin": "^0.1.5",
+    "webpack": "^4.26.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack-dev-server --mode production",
     "lint": "eslint './src/**/*.js' './src/**/*.jsx'",
     "deploy": "webpack -p && gh-pages -d dist",
-    "bundle": "./node_modules/.bin/webpack --config webpack.config.js"
+    "bundle": "./node_modules/.bin/webpack --config webpack.config.js",
+    "prestart": "yarn run bundle"
   }
 }

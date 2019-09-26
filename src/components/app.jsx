@@ -53,6 +53,7 @@ const App = () => {
             <ConnectionStatus />
           </div>
         </div>
+        <div className="h" />
       </div>
     </div>
   );

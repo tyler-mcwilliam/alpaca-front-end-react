@@ -408,3 +408,86 @@ body {
   border-color: #f6b93b !important;
   transition: all 0.4s ease 0s;
 }
+
+.h{
+  margin: 100px auto;
+  width: 200px;
+  height: 120px;
+  background:#DBA042;
+  border-radius: 100px 20px 20px 40px;
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  z-index: 5;
+  box-shadow:
+    3px 3px 0 0px #DB8700,
+    /*body*/
+    150px 230px 0 40px #DBA042,
+     /*body shadow*/
+    155px 240px 0 40px #DB8700
+}
+
+.h:after{
+  content: "";
+  display: block;
+  width: 25px;
+  height: 20px;
+  border-radius:50%;
+  position: absolute;
+  left: 140px;
+  top: 10px;
+  z-index: 10;
+    box-shadow:
+    /*main eyelid*/
+    3px 10px 0 10px #fff,
+    /*main eyelid shadow*/
+    3px 20px 0 20px #DB8700,
+    /*nose*/
+    -130px 40px 0 0 #fff,
+     /*nose shadow*/
+    -130px 45px 0 0 #DB8700,
+    /*mouth*/
+    -100px 80px 0 -4px #fff,
+    /*mouth shadow*/
+    -100px 85px 0 -6px #DB8700
+}
+
+.h:before{
+  content: "";
+  display: block;
+  width: 25px;
+  height: 70px;
+  background:#DBA042;
+  border-radius: 150px 20px 0 20px;
+  position: absolute;
+  left: 145px;
+  top: -45px;
+  z-index: 1;
+  box-shadow:
+    /*right ear*/
+    30px -5px 0 0px #DBA042,
+    /*right ear shadow*/
+    33px -5px 0 0px #DB8700,
+    /*neck*/
+    5px 170px 0 25px #DBA042,
+    5px 230px 0 25px #DBA042,
+    /*neck longer*/
+    10px 175px 0 25px #DB8700,
+    /*tail*/
+    220px 240px 0 0 #DBA042,
+    /*tail shadow*/
+    225px 240px 0 0 #DB8700,
+    /*front right leg*/
+    35px 425px 0 20px #DBA042,
+    /*back right shadow leg*/
+    30px 425px 0 20px #DB8700,
+    /*front left leg*/
+    0px 410px 0 20px #DBA042,
+    /*back right leg*/
+    200px 425px 0 20px #DBA042,
+    /*back right shadow leg*/
+    195px 425px 0 20px #DB8700,
+    /*back left leg*/
+    165px 410px 0 20px #DBA042
+
+}
