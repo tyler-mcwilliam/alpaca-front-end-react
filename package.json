@@ -64,7 +64,6 @@
     "start": "webpack-dev-server --mode development",
     "lint": "eslint './src/**/*.js' './src/**/*.jsx'",
     "deploy": "webpack -p && gh-pages -d dist",
-    "bundle": "./node_modules/.bin/webpack --config webpack.config.js",
-    "prestart": "yarn run bundle"
+    "bundle": "./node_modules/.bin/webpack --config webpack.config.js"
   }
 }
