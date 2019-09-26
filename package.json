@@ -53,4 +53,5 @@
     "lint": "eslint './src/**/*.js' './src/**/*.jsx'",
     "deploy": "webpack -p && gh-pages -d dist",
     "bundle": "./node_modules/.bin/webpack --config webpack.config.js"
+  }
 }
