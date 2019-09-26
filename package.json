@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "main": "index.jsx",
+  "engines": {
+    "node": "10.15.3",
+    "yarn": "1.17.3"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
