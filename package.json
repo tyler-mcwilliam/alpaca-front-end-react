@@ -72,7 +72,6 @@
     "webpack-dev-server": "^3.8.1"
   },
   "scripts": {
-    "dev": "webpack-dev-server --mode development --open",
     "start": "node server.js",
     "heroku-postbuild": "webpack -p"
   }
