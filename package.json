@@ -1,4 +1,10 @@
 {
+  "name": "myapp",
+  "description": "a really cool app",
+  "version": "1.0.0",
+  "engines": {
+    "yarn": "1.x"
+  },
   "license": "UNLICENSED",
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -67,6 +73,7 @@
     "start": "webpack-dev-server --mode development",
     "lint": "eslint './src/**/*.js' './src/**/*.jsx'",
     "deploy": "webpack -p && gh-pages -d dist",
-    "bundle": "./node_modules/.bin/webpack --config webpack.config.js"
+    "bundle": "./node_modules/.bin/webpack --config webpack.config.js",
+    "prestart": "yarn run bundle"
   }
 }
