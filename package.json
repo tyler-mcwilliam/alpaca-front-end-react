@@ -52,6 +52,7 @@
     "redux-promise": "^0.6.0",
     "request": "^2.88.0",
     "sshpk": "^1.16.1",
+    "style-loader": "^0.18.2",
     "tls": "^0.0.1",
     "tweetnacl": "^1.0.1",
     "urljoin": "^0.1.5",
