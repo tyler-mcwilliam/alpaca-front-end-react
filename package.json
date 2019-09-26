@@ -26,10 +26,16 @@
   "dependencies": {
     "@alpacahq/alpaca-trade-api": "^1.2.4",
     "alpaca": "^1.5.27",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.3.1",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.4.1",
     "mime-db": "^1.41.0",
     "mime-types": "^2.1.24",
@@ -49,13 +55,15 @@
     "tls": "^0.0.1",
     "tweetnacl": "^1.0.1",
     "urljoin": "^0.1.5",
-    "webpack": "^4.41.0"
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
   },
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "lint": "eslint './src/**/*.js' './src/**/*.jsx'",
     "deploy": "webpack -p && gh-pages -d dist",
-    "bundle": "webpack --config webpack.config.js",
+    "bundle": "./node_modules/.bin/webpack --config webpack.config.js",
     "prestart": "yarn run bundle"
   }
 }

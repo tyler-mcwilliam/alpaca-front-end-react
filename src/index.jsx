@@ -21,10 +21,10 @@ import accountReducer from './reducers/account_reducer';
 import placeOrderReducer from './reducers/place_order_reducer';
 
 const initialState = {
-  // keyId: "APCA-API-KEY-ID",
-  // secretKey: "APCA-API-SECRET-KEY",
-  keyId: "PK6U6ED9E8HXK3SWW268",
-  secretKey: "SouRAmDePmiQkyEEsiLItQx72dylQuMizDvFZpWI",
+  keyId: "APCA-API-KEY-ID",
+  secretKey: "APCA-API-SECRET-KEY",
+  // keyId: "PK6U6ED9E8HXK3SWW268",
+  // secretKey: "SouRAmDePmiQkyEEsiLItQx72dylQuMizDvFZpWI",
   account: null,
   positions: null,
   orders: null,
