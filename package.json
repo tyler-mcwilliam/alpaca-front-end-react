@@ -2,9 +2,6 @@
   "name": "myapp",
   "description": "a really cool app",
   "version": "1.0.0",
-  "engines": {
-    "yarn": "1.17.3"
-  },
   "license": "UNLICENSED",
   "devDependencies": {
     "babel-core": "^6.26.0",
